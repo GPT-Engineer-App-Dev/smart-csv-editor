@@ -49,15 +49,15 @@ const CSVUploader = () => {
 
   return (
     <div>
-      <Input type="file" accept=".csv" onChange={handleFileUpload} mb={4} />
-      <Button onClick={handleAddRow} mb={4}>Add Row</Button>
-      <Table variant="simple">
+      <Input type="file" accept=".csv" onChange={handleFileUpload} mb={4} bg="gray.700" color="white" />
+      <Button onClick={handleAddRow} mb={4} bg="blue.500" color="white">Add Row</Button>
+      <Table variant="simple" bg="gray.700" color="white">
         <Thead>
           <Tr>
             {headers.map((header) => (
-              <Th key={header}>{header}</Th>
+              <Th key={header} color="white">{header}</Th>
             ))}
-            <Th>Actions</Th>
+            <Th color="white">Actions</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -68,6 +68,8 @@ const CSVUploader = () => {
                   <Input
                     value={row[header] || ''}
                     onChange={(e) => handleInputChange(rowIndex, header, e.target.value)}
+                    bg="gray.600"
+                    color="white"
                   />
                 </Td>
               ))}
@@ -76,13 +78,15 @@ const CSVUploader = () => {
                   aria-label="Remove Row"
                   icon={<FaTrash />}
                   onClick={() => handleRemoveRow(rowIndex)}
+                  bg="red.500"
+                  color="white"
                 />
               </Td>
             </Tr>
           ))}
         </Tbody>
       </Table>
-      <Button onClick={handleDownload} mt={4} leftIcon={<FaDownload />}>Download CSV</Button>
+      <Button onClick={handleDownload} mt={4} leftIcon={<FaDownload />} bg="green.500" color="white">Download CSV</Button>
     </div>
   );
 };
